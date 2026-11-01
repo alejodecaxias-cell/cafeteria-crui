@@ -1,0 +1,47 @@
+### Bienvenida
+GET http://localhost:3000/
+
+### Listar todos
+GET http://localhost:3000/api/productos
+
+### Producto existente
+GET http://localhost:3000/api/productos/1
+
+### Producto inexistente (404)
+GET http://localhost:3000/api/productos/99
+
+### Crear producto (201)
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{ "nombre": "Jugo de naranja", "precio": 2000, "categoria": "bebida" }
+
+### Crear con precio como texto (400)
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{ "nombre": "Jugo", "precio": "2000", "categoria": "bebida" }
+
+### Crear con nombre vacío (400)
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{ "nombre": "   ", "precio": 2000 }
+
+### Modificar producto (200)
+PUT http://localhost:3000/api/productos/2
+Content-Type: application/json
+
+{ "nombre": "Medialuna de manteca", "precio": 1000, "categoria": "comida" }
+
+### Modificar inexistente (404)
+PUT http://localhost:3000/api/productos/99
+Content-Type: application/json
+
+{ "nombre": "X", "precio": 100 }
+
+### Eliminar producto (200)
+DELETE http://localhost:3000/api/productos/4
+
+### Eliminar inexistente (404)
+DELETE http://localhost:3000/api/productos/99
